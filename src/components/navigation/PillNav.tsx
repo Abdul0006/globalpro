@@ -91,7 +91,7 @@ export default function PillNav({
                     className="absolute inset-0 rounded-full z-0 bg-gradient-to-r from-primary/20 to-primary/5 bg-primary"
                     layoutId="pillActive"
                     transition={{ 
-                      ease: ease === "power2.easeOut" ? [0.34, 1.56, 0.64, 1] : ease,
+                      ease: ease === "power2.easeOut" ? [0.34, 1.56, 0.64, 1] : "easeOut",
                       duration: 0.4 
                     }}
                   />
@@ -154,7 +154,7 @@ export default function PillNav({
                       className="absolute inset-0 rounded-full z-0 left-0 right-0 bg-gradient-to-r from-primary/20 to-primary/5 bg-primary"
                       layoutId="pillActive"
                       transition={{ 
-                        ease: ease === "power2.easeOut" ? [0.34, 1.56, 0.64, 1] : ease,
+                        ease: ease === "power2.easeOut" ? [0.34, 1.56, 0.64, 1] : "easeOut",
                         duration: 0.4 
                       }}
                     />

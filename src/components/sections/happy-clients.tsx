@@ -72,7 +72,7 @@ const HappyClients = () => {
             What Our Clients Say About Us
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say.
+            Don{'\''}t just take our word for it. Here{'\''}s what our satisfied clients have to say.
           </p>
         </motion.div>
 
@@ -91,7 +91,7 @@ const HappyClients = () => {
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
+              <p className="text-muted-foreground mb-6 italic">{`"${testimonial.content}"`}</p>
               <div className="flex items-center">
                 <img 
                   src={testimonial.image} 

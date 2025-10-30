@@ -21,7 +21,7 @@ export default function ContactPage() {
       <main className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
         <p className="text-lg mb-4">Get in touch with our team.</p>
-        <p className="text-lg">We'd love to hear from you and discuss your project.</p>
+        <p className="text-lg">We{'\''}d love to hear from you and discuss your project.</p>
       </main>
     </div>
   );

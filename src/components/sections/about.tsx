@@ -21,7 +21,7 @@ export default function AboutSection() {
               Leading <span className="text-gold-gradient">Digital Marketing</span> Agency
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Since 2010, we've been transforming businesses through strategic digital marketing. Our team of experts combines creative thinking with data-driven strategies to deliver measurable results that drive growth and increase ROI.
+              Since 2010, we{'\''}ve been transforming businesses through strategic digital marketing. Our team of experts combines creative thinking with data-driven strategies to deliver measurable results that drive growth and increase ROI.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
               We pride ourselves on staying ahead of industry trends and leveraging the latest marketing technologies to keep your brand competitive in an ever-evolving digital landscape.

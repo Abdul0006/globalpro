@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import Image from 'next/image';
 
 type Testimonial = {
   id: number;
@@ -118,13 +119,17 @@ export default function TestimonialsSection() {
                   <Star key={i} className="w-5 h-5 text-muted-foreground" />
                 ))}
               </div>
-              <p className="text-muted-foreground mb-8 italic">"{testimonial.content}"</p>
+              <p className="text-muted-foreground mb-8 italic">{`"${testimonial.content}"`}</p>
               <div className="flex items-center">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name} 
-                  className="w-14 h-14 rounded-full object-cover mr-4 border-2 border-primary/20"
-                />
+                <div className="relative w-14 h-14 mr-4">
+                  <Image 
+                    src={testimonial.image} 
+                    alt={testimonial.name} 
+                    className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
+                    fill
+                    sizes="56px"
+                  />
+                </div>
                 <div>
                   <h4 className="font-bold text-foreground">{testimonial.name}</h4>
                   <p className="text-sm text-primary">{testimonial.role}, {testimonial.company}</p>

@@ -39,7 +39,7 @@ const Partners = () => {
             Trusted by Industry Leaders
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We collaborate with the world's leading technology companies to deliver exceptional solutions.
+            We collaborate with the world{'\''}s leading technology companies to deliver exceptional solutions.
           </p>
         </motion.div>
 

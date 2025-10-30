@@ -97,7 +97,7 @@ export default function CaseStudiesSection() {
               Proven <span className="text-gold-gradient">Results</span> for Our Clients
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Discover how we've helped businesses like yours achieve measurable growth and success through strategic digital marketing.
+              Discover how we{'\''}ve helped businesses like yours achieve measurable growth and success through strategic digital marketing.
             </p>
           </motion.div>
         </div>

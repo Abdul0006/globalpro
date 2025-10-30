@@ -49,7 +49,7 @@ export default function ContactSection() {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
       content: "hello@digitalmarketingpro.com",
-      description: "We'll respond within 24 hours"
+      description: "We{'\''}ll respond within 24 hours"
     },
     {
       icon: <Phone className="w-6 h-6" />,
@@ -80,7 +80,7 @@ export default function ContactSection() {
               <span className="text-primary text-sm font-semibold">GET IN TOUCH</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-              Let's Discuss Your <span className="text-gold-gradient">Digital Strategy</span>
+              Let{'\''}s Discuss Your <span className="text-gold-gradient">Digital Strategy</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Ready to take your digital presence to the next level? Contact us today for a free consultation.
@@ -155,7 +155,7 @@ export default function ContactSection() {
                   <div className="text-5xl mb-4">✅</div>
                   <h3 className="text-2xl font-bold mb-2 text-foreground">Thank You!</h3>
                   <p className="text-muted-foreground">
-                    Your message has been sent successfully. We'll get back to you soon.
+                    Your message has been sent successfully. We{'\''}ll get back to you soon.
                   </p>
                 </motion.div>
               ) : (

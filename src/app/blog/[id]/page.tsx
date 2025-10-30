@@ -79,7 +79,7 @@ const blogPosts: BlogPost[] = [
 
 export default function BlogPostPage() {
   const { id } = useParams();
-  const postId = Array.isArray(id) ? parseInt(id[0]) : parseInt(id);
+  const postId = Array.isArray(id) ? parseInt(id[0] || '0') : parseInt(id || '0');
   const post = blogPosts.find(p => p.id === postId) || blogPosts[0];
 
   return (
