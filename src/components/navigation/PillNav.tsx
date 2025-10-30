@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 interface PillNavItem {
@@ -17,10 +18,6 @@ interface PillNavProps {
   activeHref: string;
   className?: string;
   ease?: string;
-  baseColor?: string;
-  pillColor?: string;
-  hoveredPillTextColor?: string;
-  pillTextColor?: string;
 }
 
 export default function PillNav({
@@ -30,10 +27,6 @@ export default function PillNav({
   activeHref,
   className = '',
   ease = "power2.easeOut",
-  baseColor = 'hsl(var(--foreground))',
-  pillColor = 'hsl(var(--primary))',
-  hoveredPillTextColor = 'hsl(var(--primary-foreground))',
-  pillTextColor = 'hsl(var(--primary-foreground))',
 }: PillNavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -51,12 +44,9 @@ export default function PillNav({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Find the active item based on the current path
-  const activeItem = items.find(item => item.href === activeHref);
-
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${className} ${
         scrolled ? 'bg-background/90 backdrop-blur-xl py-3 shadow-sm border-b border-border' : 'bg-transparent py-5'
       }`}
     >
@@ -64,14 +54,14 @@ export default function PillNav({
         <Link href="/" className="flex items-center space-x-3">
           <div className="relative">
             <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary/50 flex items-center justify-center border border-primary/20">
-              <img 
+              <Image 
                 src={logo} 
                 alt={logoAlt} 
                 className="w-8 h-8 object-contain rounded-full"
+                width={32}
+                height={32}
               />
             </div>
-            {/* Decorative ring elements */}
-            <div className="absolute -inset-1.5 rounded-full border border-primary/10 pointer-events-none"></div>
           </div>
           <span className="text-xl font-bold text-foreground">
             {logoAlt.replace(' Logo', '')}
