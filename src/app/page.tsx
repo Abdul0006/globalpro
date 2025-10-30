@@ -6,6 +6,7 @@ import ContactSection from '@/components/sections/contact';
 import TeamSection from '@/components/sections/team';
 import TestimonialsSection from '@/components/sections/testimonials';
 import StatsSection from '@/components/sections/stats';
+import BlogSection from '@/components/sections/blog';
 import PillNav from '@/components/navigation/PillNav';
 
 export default function Home() {
@@ -19,7 +20,8 @@ export default function Home() {
         items={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '#services' },
-          { label: 'Work', href: '#work' },
+          { label: 'Work', href: '/casestudies' },
+          { label: 'Blog', href: '/blog' },
           { label: 'Team', href: '#team' },
           { label: 'Testimonials', href: '#testimonials' },
           { label: 'Contact', href: '#contact' }
@@ -33,6 +35,7 @@ export default function Home() {
       <ServicesSection />
       <CaseStudiesSection />
       <AboutSection />
+      <BlogSection />
       <TeamSection />
       <TestimonialsSection />
       <ContactSection />

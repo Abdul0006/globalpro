@@ -1,11 +1,18 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, Star } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HeroSection() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const toggleForm = () => {
+    setIsFormOpen(!isFormOpen);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated background */}
@@ -110,67 +117,96 @@ export default function HeroSection() {
             </motion.div>
           </div>
           
-          <motion.div 
-            className="lg:w-2/5 bg-card p-8 rounded-2xl shadow-xl max-w-lg mx-auto border border-border relative overflow-hidden"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          >
-            {/* Decorative corner elements */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary rounded-tl-2xl"></div>
-            <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary rounded-tr-2xl"></div>
-            <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary rounded-bl-2xl"></div>
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary rounded-br-2xl"></div>
-            
-            <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
-              Get Your Free Digital Audit
-            </h2>
-            
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-muted-foreground mb-2">
-                  Name
-                </label>
-                <input 
-                  type="text" 
-                  className="w-full bg-background border border-input rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Enter your name"
-                />
+          {/* Form Container - Always collapsible now */}
+          <div className="lg:w-2/5 max-w-lg mx-auto">
+            <div className="bg-card rounded-2xl shadow-xl border border-border relative overflow-hidden">
+              {/* Decorative corner elements */}
+              <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary rounded-tl-2xl"></div>
+              <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary rounded-tr-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary rounded-bl-2xl"></div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary rounded-br-2xl"></div>
+              
+              {/* Form Header - Always visible, acts as toggle */}
+              <div className="p-8">
+                <h2 className="text-2xl font-bold text-foreground mb-6">
+                  Get Your Free Digital Audit
+                </h2>
+                
+                {/* Always visible Get Free Audit Button */}
+                {!isFormOpen && (
+                  <Button 
+                    className="w-full py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90"
+                    onClick={toggleForm}
+                  >
+                    Get Free Audit
+                  </Button>
+                )}
               </div>
               
-              <div>
-                <label className="block text-sm font-medium text-muted-foreground mb-2">
-                  Email
-                </label>
-                <input 
-                  type="email" 
-                  className="w-full bg-background border border-input rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Enter your email"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-muted-foreground mb-2">
-                  Business Type
-                </label>
-                <select className="w-full bg-background border border-input rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                  <option>E-commerce</option>
-                  <option>Local Business</option>
-                  <option>SaaS</option>
-                  <option>Agency</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              
-              <Button className="w-full py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90">
-                Get Free Audit
-              </Button>
-              
-              <p className="text-center text-sm text-muted-foreground">
-                Join 500+ businesses growing with our strategies
-              </p>
+              {/* Collapsible Form Content */}
+              <AnimatePresence>
+                {isFormOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-8 pt-6">
+                      <div className="space-y-6">
+                        <div>
+                          <label className="block text-sm font-medium text-muted-foreground mb-2">
+                            Name
+                          </label>
+                          <input 
+                            type="text" 
+                            className="w-full bg-background border border-input rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            placeholder="Enter your name"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-muted-foreground mb-2">
+                            Email
+                          </label>
+                          <input 
+                            type="email" 
+                            className="w-full bg-background border border-input rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-muted-foreground mb-2">
+                            Business Type
+                          </label>
+                          <select className="w-full bg-background border border-input rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>E-commerce</option>
+                            <option>Local Business</option>
+                            <option>SaaS</option>
+                            <option>Agency</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                        
+                        <Button 
+                          className="w-full py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90"
+                          onClick={toggleForm}
+                        >
+                          Submit Audit Request
+                        </Button>
+                        
+                        <p className="text-center text-sm text-muted-foreground">
+                          Join 500+ businesses growing with our strategies
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
